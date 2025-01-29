@@ -1,4 +1,4 @@
-## Git Usage:
+## Commit Message Insttructions:
 
 - use the following prefixes for commit messages followed by a colon and a space:
   - "fix" for bug fixes
@@ -10,5 +10,5 @@
   - "test" for adding missing tests
   - "chore" for chore tasks
 - when determining the commit message prefix, pick the most relevant prefix from the list above
-- use lower case for commit messages
+- use all lower case for commit messages
 - the commit message should also include a list of the changes made in the commit after the summary line if the changes are not self explanatory
