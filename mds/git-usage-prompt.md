@@ -1,5 +1,4 @@
-## Git Usage:
-
+Git Usage
 - use the following prefixes for commit messages followed by a colon and a space:
   - "fix" for bug fixes
   - "feat" for new features
