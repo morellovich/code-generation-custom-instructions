@@ -1,5 +1,6 @@
 ## Instructions for General Code Generation
 
+    - Every time you choose to apply a rule(s), explicitly state the rule(s) in the output. You can abbreviate the rule description to a single word or phrase.
     - Follow DRY (Don't Repeat Yourself) and KISS (Keep It Simple, Stupid) principles for maintainability.
     - Ensure code readability with consistent indentation, spacing, and meaningful names.
     - Write modular, reusable code to improve flexibility and testability.
@@ -10,10 +11,12 @@
     - Ensure cross-platform compatibility and avoid framework-specific dependencies when possible.
     - Write comprehensive tests to validate functionality and catch regressions early.
     - Design scalable and efficient architectures to support future growth.
+    - Use functional and declarative programming patterns; avoid classes.
+    - Prefer iteration and modularization over code duplication.
 
 ## Preferred Technology Stack and Versions
 
-    - Generate code using ONLY the following technologies and their specified versions:
+    - You are an expert senior developer in the following languages, generate code using ONLY the following technologies and their specified versions:
 
 **Frontend:**
 
@@ -53,10 +56,15 @@
     - Docker:Version 24.0.5
     - Coolify:Version 3.8.0
 
-## Instructions for Next.js Code Generation
+## Instructions for Next.js / TypeScript Code Generation
 
     - Use functional components and React hooks for clean, reusable code.
+    - prefer interfaces over types.
+    - Avoid enums; use maps instead.
     - Optimize state management for smooth page transitions and user interactions.
+    - Use absolute imports for all files @/...
+    - Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
+    - Use explicit return types for all functions
 
 ## Instructions for Tailwind CSS Code Generation
 
@@ -70,6 +78,9 @@
     - Minimize state usage to avoid performance bottlenecks.
     - Maintain a clear project structure for easier testing and debugging.
     - Optimize network requests using caching and background sync where applicable.
+    - Use React Context for global state when needed
+    - Implement proper state persistence using chrome.storage (for extension)
+    - Implement proper cleanup in useEffect hooks
 
 ## Instructions for FastAPI Code Generation
 
@@ -88,6 +99,12 @@
     - Maintain consistent model and field naming conventions for clarity.
     - Use transactions for handling complex operations safely.
     - Include mock data and transactional tests for database reliability.
+    - Use parameterized queries to prevent SQL injection.
+    - Apply indexing strategies for performance tuning.
+    - Ensure foreign keys and constraints are correctly defined.
+    - Always use migrations to update the database schema
+    - When adding a new field to a table, add it to the migration file and update the schema file
+    - When changing db models, add a migration file and update the schema file (in src/lib/migrations/) it should follow the naming convention of the other migration files
 
 ## Instructions for NextAuth.js (Auth.js) Code Generation
 
@@ -106,6 +123,7 @@
     - Implement error tracking with environment-specific configurations.
     - Use breadcrumbs and user context for detailed error reports.
     - Ensure sensitive data masking to comply with privacy standards.
+    - Integrate logging using the specified Sentry SDKs to monitor and debug applications effectively.
 
 ## Instructions for Docker Code Generation
 
@@ -140,34 +158,90 @@ src/
 ├── scripts/ # Deployment and automation scripts (Docker, CI/CD)
 └── README.md # Documentation
 
-## Code Formatting and Naming Conventions
+## Code Syntax, Formatting and Naming Conventions
 
-    General Syntax and Formatting
     - Use the function keyword for pure functions.
     - Avoid unnecessary curly braces in conditionals.
-    File and Directory Naming
     - Use lowercase with dashes for directories (e.g., components/form-wizard).
     - Use PascalCase for component files (e.g., VisaForm.tsx).
     - Use camelCase for utility files (e.g., formValidator.ts).
     - Use kebab-case for all other file names (file-name.ts).
-    Variable and Function Naming
     - Use camelCase for variables and functions.
     - Use descriptive names (avoid abbreviations).
     - Prefix private members with an underscore (_privateVar).
-    Class and Interface Naming
     - Use PascalCase for classes (e.g., UserModel).
     - Use PascalCase with an 'I' prefix for interfaces (e.g., IUser).
-    Constants
     - Use UPPER_SNAKE_CASE for constants (e.g., API_BASE_URL).
-    Exports and Imports
     - Favor named exports for components and utilities.
+    - use declarative JSX for readability and maintainability.
+    - Follow Prettier and ESLint rules for formatting consistency.
 
-## Coding Conventions and Best Practices:
+## UI & Styling
 
-    - Code Consistency:Ensure that all code adheres to the specified versions of the technologies listed above to maintain consistency across projects.
-    - Error Handling:Implement robust error handling mechanisms. For example, in FastAPI, use exception handlers to manage errors gracefully.
-    - Testing:Write comprehensive tests for all functionalities. Utilize the specified testing frameworks to ensure code reliability.
-    - Logging:Integrate logging using the specified Sentry SDKs to monitor and debug applications effectively.
-    - Documentation:Provide clear and concise documentation for all modules and functions. Use docstrings in Python and JSDoc in JavaScript/TypeScript where applicable.
-    - Code Formatting:Adhere to standard code formatting guidelines. For instance, use Prettier for JavaScript/TypeScript and Black for Python to maintain uniformity.
-    - Version Control:Follow semantic versioning for all projects and ensure that version numbers are updated appropriately with each release.
+    - Use Shadcn UI, Radix, and Tailwind CSS for components and styling.
+    - use `npx shadcn@latest add <component-name>` to add new shadcn components
+    - Implement responsive design with Tailwind CSS; use a mobile-first approach.
+    - When adding a new Shadcn component, also print out the command to add it in the output.
+    - Keep component structure flat to improve readability and maintainability.
+    - Avoid overriding Tailwind utility classes excessively—prefer composition over specificity.
+
+## Performance Optimization
+
+    - Minimize use client, useEffect, and setState; favor React Server Components (RSC), Use only for Web API access in small components, Avoid for data fetching or state management.
+    - Wrap client components in Suspense with a fallback.
+    - Use dynamic loading for non-critical components.
+    - Optimize images: Use WebP format, Include size data for faster layout rendering, Implement lazy loading.
+    - Prefer Edge Functions or Serverless APIs when appropriate for scalability.
+    - Use React.memo to optimize re-renders in client components
+    - Use Data Access Layer pattern for database access in components
+    - Use server actions for data fetching and state management in components
+    - Follow Next.js docs for Data Fetching, Rendering, and Routing
+
+## Security
+
+    - Implement Content Security Policy
+    - Sanitize user inputs
+    - Handle sensitive data properly
+    - Follow Chrome extension security best practices
+    - Implement proper CORS handling
+
+## Error Handling
+
+    - Write comprehensive tests for all functionalities.
+    - Implement proper error boundaries
+    - Log errors appropriately for debugging
+    - Provide user-friendly error messages
+    - Handle network failures gracefully
+    - Implement robust error handling mechanisms. For example, in FastAPI, use exception handlers to manage errors gracefully
+
+## Testing
+
+    - Write unit tests for utilities and components
+    - Implement E2E tests for critical flows
+    - Test across different Chrome versions
+    - Test memory usage and performance
+
+## Documentation
+
+    - Provide clear and concise documentation for all modules and functions.
+    - Use docstrings in Python and JSDoc in JavaScript/TypeScript where applicable.
+    - Maintain clear README with setup instructions
+    - Document API interactions and data flows
+    - Keep manifest.json well-documented
+    - Don't include comments unless it's for complex logic
+    - Document permission requirements
+
+## Development Workflow
+
+    - Follow proper semantic versioning for all projects
+    - Implement proper code review process
+    - Test in multiple environments
+    - Follow semantic versioning for releases
+    - Maintain changelog
+
+## Interactive Rules:
+
+    - Automatically suggest to change the README.md file, If dependencies are updated or critical information should be documented
+    - Automatically suggest for addition of rules in codeGeneration-instructions.md where best practice in used in the code generation
+    - Automatically suggest for changing of rules in codeGeneration-instructions.md where best code generation caused problems and bugs.
+    - Automatically suggest for updating of rules in codeGeneration-instructions.md where if a new coding style is introduced in my codebase.
