@@ -1,96 +1,173 @@
+## Instructions for General Code Generation
+
+    - Follow DRY (Don't Repeat Yourself) and KISS (Keep It Simple, Stupid) principles for maintainability.
+    - Ensure code readability with consistent indentation, spacing, and meaningful names.
+    - Write modular, reusable code to improve flexibility and testability.
+    - Implement structured logging to simplify debugging and error tracking.
+    - Use error handling and graceful fallbacks to improve reliability and availability.
+    - Prioritize security: sanitize inputs, follow least privilege principles, and enforce authentication.
+    - Optimize performance by reducing redundant computations and unnecessary API calls.
+    - Ensure cross-platform compatibility and avoid framework-specific dependencies when possible.
+    - Write comprehensive tests to validate functionality and catch regressions early.
+    - Design scalable and efficient architectures to support future growth.
+
 ## Preferred Technology Stack and Versions
 
-Generate code using ONLY the following technologies and their specified versions:
+    - Generate code using ONLY the following technologies and their specified versions:
 
-    - **Frontend:**
+**Frontend:**
+
     - Next.js:Version 13.4.12
     - Tailwind CSS:Version 3.3.2
     - React Native:Version 0.72.3
 
-    - **Backend:**
+**Backend:**
+
     - FastAPI:Version 0.100.0
 
-    - **Database:**
+**Database:**
+
     - PostgreSQL:Version 15.3
 
-    - **ORM:**
+**ORM:**
+
     - Prisma:Version 4.15.0
-    - **Authentication:**
+
+**Authentication:**
+
     - NextAuth.js (Auth.js):Version 4.22.1
 
-    - **Testing:**
+**Testing:**
+
     - Jest:Version 29.6.1
     - React Testing Library:Version 14.0.0
     - Pytest:Version 7.4.0
 
-    - **Logging and Monitoring:**
+**Logging and Monitoring:**
+
     - Sentry SDK for JavaScript:Version 7.59.0
     - Sentry SDK for Python:Version 1.29.2
 
-    - **Containerization and Deployment:**
+**Containerization and Deployment:**
+
     - Docker:Version 24.0.5
     - Coolify:Version 3.8.0
 
-## Instructions for Next.js code generating:
+## Instructions for Next.js Code Generation
 
-    - Utilize functional components and hooks for better state management, enhancing user interaction experiences
-    - Use functional components, state management, and React hooks to achieve smooth page transitions 2
+    - Use functional components and React hooks for clean, reusable code.
+    - Optimize state management for smooth page transitions and user interactions.
 
-## Instructions for Tailwind CSS code generating:
+## Instructions for Tailwind CSS Code Generation
 
-    - Keep utility classes organized with meaningful names to facilitate easier maintenance and integration with other frameworks 1
-    - Optimize by avoiding excessive nesting, which can bloat the final CSS output and degrade performance 3
+    - Keep utility classes organized and meaningful for better maintainability.
+    - Avoid excessive nesting to reduce CSS bloat and improve performance.
+    - Prefer responsive, reusable styles over inline custom styles.
 
-## Instructions for React Native code generating:
+## Instructions for React Native Code Generation
 
-    - Prioritize component reusability and use TypeScript for type safety, improving both functionality and ease of development 5
-    - Minimize state usage to avoid becoming a performance bottleneck, only maintaining necessary state for optimal efficiency 3
-    - Organize project structure clearly to enhance maintainability and facilitate robust testing practices 1
+    - Prioritize component reusability and use TypeScript for type safety.
+    - Minimize state usage to avoid performance bottlenecks.
+    - Maintain a clear project structure for easier testing and debugging.
+    - Optimize network requests using caching and background sync where applicable.
 
-## Instructions for FastAPI code generating:
+## Instructions for FastAPI Code Generation
 
-    - Write asynchronous functions wherever possible to improve scalability and resource utilization
-    - Provide clear examples of endpoint definitions with proper error handling to ensure secure and reliable API interactions
+    - Use async functions for scalable, non-blocking API handling.
+    - Implement structured error handling for secure and reliable endpoints.
+    - Ensure OpenAPI documentation is generated for better API usability.
 
-## Instructions for PostgreSQL code generating:
+## Instructions for PostgreSQL Code Generation
 
-    - Emphasize normalization principles while designing schemas and include indexing strategies in comments for query optimization 5
-    - Design databases with failover mechanisms and backup procedures to ensure high availability and reliability
-    - Define roles and permissions explicitly to control access and protect sensitive data
+    - Follow normalization principles and use indexes for query optimization.
+    - Implement failover mechanisms and automated backups for high availability.
+    - Enforce role-based access control (RBAC) to protect sensitive data.
 
-## Instructions for Prisma code generating:
+## Instructions for Prisma Code Generation
 
-    - Specify conventions for naming models and fields, enabling Prisma Client's features like transactions for complex operations 5
-    - Encourage the use of mock data and transactional tests to ensure efficient and effective database interactions
+    - Maintain consistent model and field naming conventions for clarity.
+    - Use transactions for handling complex operations safely.
+    - Include mock data and transactional tests for database reliability.
 
-## Instructions for NextAuth.js (Auth.js) code generating:
+## Instructions for NextAuth.js (Auth.js) Code Generation
 
-    - Detail the expected flow of authentication processes, including session management and token storage mechanisms 5
-    - Highlight security considerations such as CSRF protection and secure cookie settings to ensure reliable and available services
+    - Define authentication flows, including session management and token storage.
+    - Implement CSRF protection and secure cookie settings for security.
+    - Ensure support for OAuth, JWT, and multi-factor authentication (MFA).
 
-## Instructions for Jest & React Testing Library / Pytest code generating:
+## Instructions for Jest, React Testing Library & Pytest Code Generation
 
-    - Focus on writing comprehensive tests that cover edge cases and unexpected inputs, ensuring system reliability
-    - Leverage fixtures for setup and teardown processes in Pytest to streamline testing workflows 5
-    - Encourage descriptive test names and setup steps in comments to assist Copilot in generating understandable test suites
+    - Write comprehensive tests covering edge cases and unexpected inputs.
+    - Use fixtures for setup/teardown in Pytest to streamline testing.
+    - Ensure clear test descriptions for better maintainability and debugging.
 
-## Instructions for Sentry code generating:
+## Instructions for Sentry Code Generation
 
-    - Outline how errors should be captured and reported, including environment-specific configurations to safeguard sensitive information 5
-    - Comment about customizing breadcrumbs and user context to provide rich error details, aiding in quicker resolution and higher service availability
+    - Implement error tracking with environment-specific configurations.
+    - Use breadcrumbs and user context for detailed error reports.
+    - Ensure sensitive data masking to comply with privacy standards.
 
-## Instructions for Docker code generating:
+## Instructions for Docker Code Generation
 
-    Define base images and layering strategies to optimize build times and resource usage
-    - Add comments about multi-stage builds and environment variable usage to steer Copilot towards creating efficient and user-friendly Dockerfiles 5
-    - Implement health checks and restart policies to ensure containers are always running and ready to serve requests
+    - Use optimized base images and multi-stage builds to reduce size.
+    - Implement health checks and restart policies for stable containers.
+    - Define environment variables properly to improve security and flexibility.
+
+## Stick to this folder structure for all repositories:
+
+src/
+├── core/ # Business logic (reusable across backend/frontend)
+│ ├── domain/ # Business entities & validation rules
+│ ├── usecases/ # Application logic & services
+│ ├── interfaces/ # Abstract interfaces for business rules
+├── infrastructure/ # System-level implementations
+│ ├── database/ # PostgreSQL & Prisma implementations
+│ ├── external/ # API integrations (e.g., Auth, Sentry)
+│ ├── storage/ # File & session storage (e.g., NextAuth, Chrome storage)
+│ ├── config/ # Environment config & secrets
+├── presentation/ # User-facing interfaces (UI, API)
+│ ├── api/ # FastAPI routes/controllers
+│ ├── web/ # Next.js components & pages
+│ ├── extension/ # Chrome extension UI & scripts
+│ ├── mobile/ # React Native components
+│ ├── middleware/ # Request/Response middleware
+├── shared/ # Cross-platform utilities & types
+│ ├── components/ # Shared UI elements (Next.js, React Native)
+│ ├── hooks/ # Reusable hooks (React, Next.js, React Native)
+│ ├── utils/ # Helper functions (server + frontend)
+│ ├── types/ # TypeScript types (backend + frontend)
+├── tests/ # Unit and integration tests (Jest, Pytest)
+├── scripts/ # Deployment and automation scripts (Docker, CI/CD)
+└── README.md # Documentation
+
+## Code Formatting and Naming Conventions
+
+    General Syntax and Formatting
+    - Use the function keyword for pure functions.
+    - Avoid unnecessary curly braces in conditionals.
+    File and Directory Naming
+    - Use lowercase with dashes for directories (e.g., components/form-wizard).
+    - Use PascalCase for component files (e.g., VisaForm.tsx).
+    - Use camelCase for utility files (e.g., formValidator.ts).
+    - Use kebab-case for all other file names (file-name.ts).
+    Variable and Function Naming
+    - Use camelCase for variables and functions.
+    - Use descriptive names (avoid abbreviations).
+    - Prefix private members with an underscore (_privateVar).
+    Class and Interface Naming
+    - Use PascalCase for classes (e.g., UserModel).
+    - Use PascalCase with an 'I' prefix for interfaces (e.g., IUser).
+    Constants
+    - Use UPPER_SNAKE_CASE for constants (e.g., API_BASE_URL).
+    Exports and Imports
+    - Favor named exports for components and utilities.
 
 ## Coding Conventions and Best Practices:
 
-    - **Code Consistency:Ensure that all code adheres to the specified versions of the technologies listed above to maintain consistency across projects.
-    - **Error Handling:Implement robust error handling mechanisms. For example, in FastAPI, use exception handlers to manage errors gracefully.
-    - **Testing:Write comprehensive tests for all functionalities. Utilize the specified testing frameworks to ensure code reliability.
-    - **Logging:Integrate logging using the specified Sentry SDKs to monitor and debug applications effectively.
-    - **Documentation:Provide clear and concise documentation for all modules and functions. Use docstrings in Python and JSDoc in JavaScript/TypeScript where applicable.
-    - **Code Formatting:Adhere to standard code formatting guidelines. For instance, use Prettier for JavaScript/TypeScript and Black for Python to maintain uniformity.
-    - **Version Control:Follow semantic versioning for all projects and ensure that version numbers are updated appropriately with each release.
+    - Code Consistency:Ensure that all code adheres to the specified versions of the technologies listed above to maintain consistency across projects.
+    - Error Handling:Implement robust error handling mechanisms. For example, in FastAPI, use exception handlers to manage errors gracefully.
+    - Testing:Write comprehensive tests for all functionalities. Utilize the specified testing frameworks to ensure code reliability.
+    - Logging:Integrate logging using the specified Sentry SDKs to monitor and debug applications effectively.
+    - Documentation:Provide clear and concise documentation for all modules and functions. Use docstrings in Python and JSDoc in JavaScript/TypeScript where applicable.
+    - Code Formatting:Adhere to standard code formatting guidelines. For instance, use Prettier for JavaScript/TypeScript and Black for Python to maintain uniformity.
+    - Version Control:Follow semantic versioning for all projects and ensure that version numbers are updated appropriately with each release.
