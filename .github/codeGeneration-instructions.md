@@ -11,8 +11,14 @@
     - Ensure cross-platform compatibility and avoid framework-specific dependencies when possible.
     - Write comprehensive tests to validate functionality and catch regressions early.
     - Design scalable and efficient architectures to support future growth.
-    - Use functional and declarative programming patterns; avoid classes.
+    - Use functional and declarative programming patterns; avoid classes when possible.
     - Prefer iteration and modularization over code duplication.
+    - Create separate files for framework-specific rules
+    - Maintain a single source of truth for common rules
+    - Include decision trees for technical choices
+    - Create an index file linking to specific instruction sets
+    - Use a hierarchical structure for related rules
+    - Implement versioning for instruction sets
 
 ## Preferred Technology Stack and Versions
 
@@ -20,31 +26,31 @@
 
 **Frontend:**
 
-    - Next.js:Version 13.4.12
-    - Tailwind CSS:Version 3.3.2
-    - React Native:Version 0.72.3
+    - Next.js:Version 15.1.6
+    - Tailwind CSS:Version 4.0.1
+    - React Native:Version 0.77.0
 
 **Backend:**
 
-    - FastAPI:Version 0.100.0
+    - FastAPI:Version 0.115.7
 
 **Database:**
 
-    - PostgreSQL:Version 15.3
+    - PostgreSQL:Version 17.2
 
 **ORM:**
 
-    - Prisma:Version 4.15.0
+    - Prisma:Version 6.3.0
 
 **Authentication:**
 
-    - NextAuth.js (Auth.js):Version 4.22.1
+    - NextAuth.js (Auth.js):Version 4.24.11
 
 **Testing:**
 
-    - Jest:Version 29.6.1
-    - React Testing Library:Version 14.0.0
-    - Pytest:Version 7.4.0
+    - Jest:Version 29.7.0
+    - React Testing Library:Version 16.2.0
+    - Pytest:Version 8.3.4
 
 **Logging and Monitoring:**
 
@@ -53,8 +59,8 @@
 
 **Containerization and Deployment:**
 
-    - Docker:Version 24.0.5
-    - Coolify:Version 3.8.0
+    - Docker:Version 27.5.1
+    - Coolify:Version 4.0.0-beta.389
 
 ## Instructions for Next.js / TypeScript Code Generation
 
@@ -65,6 +71,13 @@
     - Use absolute imports for all files @/...
     - Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
     - Use explicit return types for all functions
+    - Add Edge Runtime considerations
+    - Include Server Actions guidelines
+    - Add streaming and progressive rendering rules
+    - Add TypeScript strict mode requirements
+    - Include Web Vitals metrics requirements
+    - Add accessibility (a11y) requirements
+    - Include API versioning strategy
 
 ## Instructions for Tailwind CSS Code Generation
 
@@ -79,7 +92,6 @@
     - Maintain a clear project structure for easier testing and debugging.
     - Optimize network requests using caching and background sync where applicable.
     - Use React Context for global state when needed
-    - Implement proper state persistence using chrome.storage (for extension)
     - Implement proper cleanup in useEffect hooks
 
 ## Instructions for FastAPI Code Generation
@@ -230,6 +242,7 @@ src/
     - Keep manifest.json well-documented
     - Don't include comments unless it's for complex logic
     - Document permission requirements
+    - Include documentation generation rules
 
 ## Development Workflow
 
@@ -238,10 +251,12 @@ src/
     - Test in multiple environments
     - Follow semantic versioning for releases
     - Maintain changelog
+    - Add PR template requirements
+    - Add changelog maintenance guidelines
 
 ## Interactive Rules:
 
-    - Automatically suggest to change the README.md file, If dependencies are updated or critical information should be documented
-    - Automatically suggest for addition of rules in codeGeneration-instructions.md where best practice in used in the code generation
-    - Automatically suggest for changing of rules in codeGeneration-instructions.md where best code generation caused problems and bugs.
-    - Automatically suggest for updating of rules in codeGeneration-instructions.md where if a new coding style is introduced in my codebase.
+    - Automatically suggest in a comment to change the README.md file, If dependencies are updated or critical information should be documented
+    - Automatically suggest in a comment for addition of rules in codeGeneration-instructions.md where best practice in used in the code generation
+    - Automatically suggest in a comment for changing of rules in codeGeneration-instructions.md where best code generation caused problems and bugs.
+    - Automatically suggest in a comment for updating of rules in codeGeneration-instructions.md where if a new coding style is introduced in my codebase.
