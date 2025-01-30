@@ -7,7 +7,6 @@
     - Use Server Components by default
     - Implement React Server Actions instead of client-side API calls
     - Use route handlers instead of API routes where possible
-
     - Write modular, reusable code to improve flexibility and testability.
     - Implement structured logging to simplify debugging and error tracking.
     - Use error handling and graceful fallbacks to improve reliability and availability.
