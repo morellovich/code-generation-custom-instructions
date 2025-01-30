@@ -3,6 +3,11 @@
     - Every time you choose to apply a rule(s), explicitly state the rule(s) in the output. You can abbreviate the rule description to a single word or phrase.
     - Follow DRY (Don't Repeat Yourself) and KISS (Keep It Simple, Stupid) principles for maintainability.
     - Ensure code readability with consistent indentation, spacing, and meaningful names.
+    - Replace class components with functional components
+    - Use Server Components by default
+    - Implement React Server Actions instead of client-side API calls
+    - Use route handlers instead of API routes where possible
+
     - Write modular, reusable code to improve flexibility and testability.
     - Implement structured logging to simplify debugging and error tracking.
     - Use error handling and graceful fallbacks to improve reliability and availability.
@@ -69,7 +74,11 @@
     - Avoid enums; use maps instead.
     - Optimize state management for smooth page transitions and user interactions.
     - Use absolute imports for all files @/...
-    - Avoid try/catch blocks unless there's good reason to translate or handle error in that abstraction
+    - Use try/catch only for:
+        - External API calls
+        - File operations
+        - Database queries
+        - Browser API interactions
     - Use explicit return types for all functions
     - Add Edge Runtime considerations
     - Include Server Actions guidelines
@@ -88,10 +97,10 @@
 ## Instructions for React Native Code Generation
 
     - Prioritize component reusability and use TypeScript for type safety.
-    - Minimize state usage to avoid performance bottlenecks.
     - Maintain a clear project structure for easier testing and debugging.
     - Optimize network requests using caching and background sync where applicable.
-    - Use React Context for global state when needed
+    - Use React Context only for theme, auth, and app-wide preferences
+    - Implement Server Components and Server Actions for data management"
     - Implement proper cleanup in useEffect hooks
 
 ## Instructions for FastAPI Code Generation
@@ -145,30 +154,30 @@
 
 ## Stick to this folder structure for all repositories:
 
-src/
-├── core/ # Business logic (reusable across backend/frontend)
-│ ├── domain/ # Business entities & validation rules
-│ ├── usecases/ # Application logic & services
-│ ├── interfaces/ # Abstract interfaces for business rules
-├── infrastructure/ # System-level implementations
-│ ├── database/ # PostgreSQL & Prisma implementations
-│ ├── external/ # API integrations (e.g., Auth, Sentry)
-│ ├── storage/ # File & session storage (e.g., NextAuth, Chrome storage)
-│ ├── config/ # Environment config & secrets
-├── presentation/ # User-facing interfaces (UI, API)
-│ ├── api/ # FastAPI routes/controllers
-│ ├── web/ # Next.js components & pages
-│ ├── extension/ # Chrome extension UI & scripts
-│ ├── mobile/ # React Native components
-│ ├── middleware/ # Request/Response middleware
-├── shared/ # Cross-platform utilities & types
-│ ├── components/ # Shared UI elements (Next.js, React Native)
-│ ├── hooks/ # Reusable hooks (React, Next.js, React Native)
-│ ├── utils/ # Helper functions (server + frontend)
-│ ├── types/ # TypeScript types (backend + frontend)
-├── tests/ # Unit and integration tests (Jest, Pytest)
-├── scripts/ # Deployment and automation scripts (Docker, CI/CD)
-└── README.md # Documentation
+    src/
+    ├── core/ # Business logic (reusable across backend/frontend)
+    │ ├── domain/ # Business entities & validation rules
+    │ ├── usecases/ # Application logic & services
+    │ ├── interfaces/ # Abstract interfaces for business rules
+    ├── infrastructure/ # System-level implementations
+    │ ├── database/ # PostgreSQL & Prisma implementations
+    │ ├── external/ # API integrations (e.g., Auth, Sentry)
+    │ ├── storage/ # File & session storage (e.g., NextAuth, Chrome storage)
+    │ ├── config/ # Environment config & secrets
+    ├── presentation/ # User-facing interfaces (UI, API)
+    │ ├── api/ # FastAPI routes/controllers
+    │ ├── web/ # Next.js components & pages
+    │ ├── extension/ # Chrome extension UI & scripts
+    │ ├── mobile/ # React Native components
+    │ ├── middleware/ # Request/Response middleware
+    ├── shared/ # Cross-platform utilities & types
+    │ ├── components/ # Shared UI elements (Next.js, React Native)
+    │ ├── hooks/ # Reusable hooks (React, Next.js, React Native)
+    │ ├── utils/ # Helper functions (server + frontend)
+    │ ├── types/ # TypeScript types (backend + frontend)
+    ├── tests/ # Unit and integration tests (Jest, Pytest)
+    ├── scripts/ # Deployment and automation scripts (Docker, CI/CD)
+    └── README.md # Documentation
 
 ## Code Syntax, Formatting and Naming Conventions
 
@@ -182,7 +191,7 @@ src/
     - Use descriptive names (avoid abbreviations).
     - Prefix private members with an underscore (_privateVar).
     - Use PascalCase for classes (e.g., UserModel).
-    - Use PascalCase with an 'I' prefix for interfaces (e.g., IUser).
+    -Use PascalCase for interfaces without 'I' prefix (e.g., User instead of IUser)
     - Use UPPER_SNAKE_CASE for constants (e.g., API_BASE_URL).
     - Favor named exports for components and utilities.
     - use declarative JSX for readability and maintainability.
@@ -226,17 +235,10 @@ src/
     - Handle network failures gracefully
     - Implement robust error handling mechanisms. For example, in FastAPI, use exception handlers to manage errors gracefully
 
-## Testing
-
-    - Write unit tests for utilities and components
-    - Implement E2E tests for critical flows
-    - Test across different Chrome versions
-    - Test memory usage and performance
-
 ## Documentation
 
     - Provide clear and concise documentation for all modules and functions.
-    - Use docstrings in Python and JSDoc in JavaScript/TypeScript where applicable.
+    - Use TSDoc for TypeScript documentation and docstrings for Python.
     - Maintain clear README with setup instructions
     - Document API interactions and data flows
     - Keep manifest.json well-documented

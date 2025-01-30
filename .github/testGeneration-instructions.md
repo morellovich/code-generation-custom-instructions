@@ -5,6 +5,13 @@
     - Pytest:Version 7.4.0
     - Suggest addition for testing frameworks if needed.
 
+## Testing Guidelines:
+
+    - Write unit tests for utilities and components
+    - Implement E2E tests for critical flows
+    - Test across different Chrome versions
+    - Test memory usage and performance
+
 ## Playwright E2E Testing Guidelines
 
 1.  Test Structure and Organization
@@ -69,3 +76,74 @@
     - Leverage Playwright’s tracing and video recording for debugging failures.
     - Add structured logging for better debugging insights.
     - Document complex test scenarios with comments.
+
+## Server Components and Suspense Testing
+
+1. Server Component Testing
+
+   - Test server-side rendering output
+   - Verify component hydration behavior
+   - Test streaming response headers
+   - Validate SEO-critical content
+
+2. Suspense Boundary Testing
+
+   - Test loading states using waitForSuspense()
+   - Verify fallback content rendering
+   - Test multiple nested Suspense boundaries
+   - Validate error boundary integration
+
+   ```typescript
+   // Example test structure
+   test("renders Suspense boundary correctly", async ({ page }) => {
+     await page.goto("/products");
+     await expect(page.getByTestId("suspense-fallback")).toBeVisible();
+     await expect(page.getByRole("list")).toBeVisible();
+   });
+   ```
+
+3. Streaming Pattern Tests
+
+   - Test progressive enhancement
+   - Verify partial hydration
+   - Test streaming chunks order
+   - Validate time-to-interactive
+
+   ```typescript
+   test("streams content progressively", async ({ page }) => {
+     const response = await page.goto("/dashboard");
+     await expect(response.headers()["transfer-encoding"]).toBe("chunked");
+     await expect(page.getByTestId("first-chunk")).toBeVisible();
+     await expect(page.getByTestId("dynamic-content")).toBeVisible();
+   });
+   ```
+
+4. Error Handling
+
+   - Test error boundary recovery
+   - Verify error state UI
+   - Test retry mechanisms
+   - Validate error reporting
+
+5. Performance Testing
+
+   - Measure Time to First Byte (TTFB)
+   - Test Server Component cache hits
+   - Verify streaming performance
+   - Monitor memory usage during streaming
+
+   ```typescript
+   test("measures streaming performance", async ({ page }) => {
+     const startTime = Date.now();
+     await page.goto("/large-page");
+     await page.waitForSelector('[data-testid="complete"]');
+     const loadTime = Date.now() - startTime;
+     expect(loadTime).toBeLessThan(3000);
+   });
+   ```
+
+6. Integration Testing
+   - Test React.lazy() components
+   - Verify client-server boundary interactions
+   - Test data mutations during streaming
+   - Validate state preservation
