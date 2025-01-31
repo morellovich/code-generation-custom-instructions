@@ -190,7 +190,7 @@
     - Use descriptive names (avoid abbreviations).
     - Prefix private members with an underscore (_privateVar).
     - Use PascalCase for classes (e.g., UserModel).
-    -Use PascalCase for interfaces without 'I' prefix (e.g., User instead of IUser)
+    - Use PascalCase for interfaces without 'I' prefix (e.g., User instead of IUser)
     - Use UPPER_SNAKE_CASE for constants (e.g., API_BASE_URL).
     - Favor named exports for components and utilities.
     - use declarative JSX for readability and maintainability.
