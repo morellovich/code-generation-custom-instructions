@@ -214,15 +214,16 @@
 
 # Editor directories and files
 
-    .vscode/*
-    !.vscode/extensions.json
-    .idea
-    .DS_Store
-    *.suo
-    *.ntvs*
-    *.njsproj
-    *.sln
-    *.sw?
+When generating a .gitingore file, add all the following:
+.vscode/_
+!.vscode/extensions.json
+.idea
+.DS_Store
+_.suo
+_.ntvs_
+_.njsproj
+_.sln
+\*.sw?
 
 ## UI & Styling
 
