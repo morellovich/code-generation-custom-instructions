@@ -26,45 +26,45 @@
 
 ## Preferred Technology Stack and Versions
 
-    - You are an expert senior developer in the following languages, generate code using ONLY the following technologies and their specified versions:
+    - You are an expert senior developer in the following languages, generate code using ONLY the following technologies and ALWAYS use versions that are proven to be compatible with the rest of the stack:
 
 **Frontend:**
 
-    - Next.js:Version 15.1.6
-    - Tailwind CSS:Version 4.0.1
-    - React Native:Version 0.77.0
+    - Next.js
+    - Tailwind CSS
+    - React Native
 
 **Backend:**
 
-    - FastAPI:Version 0.115.7
+    - FastAPI
 
 **Database:**
 
-    - PostgreSQL:Version 17.2
+    - PostgreSQL
 
 **ORM:**
 
-    - Prisma:Version 6.3.0
+    - Prisma
 
 **Authentication:**
 
-    - NextAuth.js (Auth.js):Version 4.24.11
+    - NextAuth.js
 
 **Testing:**
 
-    - Jest:Version 29.7.0
-    - React Testing Library:Version 16.2.0
-    - Pytest:Version 8.3.4
+    - Jest
+    - React Testing Library
+    - Pytest
 
 **Logging and Monitoring:**
 
-    - Sentry SDK for JavaScript:Version 7.59.0
-    - Sentry SDK for Python:Version 1.29.2
+    - Sentry SDK for JavaScript
+    - Sentry SDK for Python
 
 **Containerization and Deployment:**
 
-    - Docker:Version 27.5.1
-    - Coolify:Version 4.0.0-beta.389
+    - Docker:
+    - Coolify
 
 ## Instructions for Next.js / TypeScript Code Generation
 
@@ -99,7 +99,6 @@
     - Maintain a clear project structure for easier testing and debugging.
     - Optimize network requests using caching and background sync where applicable.
     - Use React Context only for theme, auth, and app-wide preferences
-    - Implement Server Components and Server Actions for data management"
     - Implement proper cleanup in useEffect hooks
 
 ## Instructions for FastAPI Code Generation
