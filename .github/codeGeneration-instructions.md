@@ -252,6 +252,12 @@ _.sln
     - Handle sensitive data properly
     - Follow Chrome extension security best practices
     - Implement proper CORS handling
+    - Rate limit all API endpoints
+    - Use row-level security (RLS) for database operations
+    - Implement CAPTCHA on all authentication routes/signup pages
+    - Enable attack challenge on hosting WAF when available (e.g., Vercel)
+    - Authenticate API endpoints for paid/active users only
+    - Implement caps on AI usage where applicable
 
 ## Error Handling
 
@@ -282,6 +288,16 @@ _.sln
     - Maintain changelog
     - Add PR template requirements
     - Add changelog maintenance guidelines
+    - After making changes, always start a new server for testing
+    - Kill all existing related servers before starting a new one
+    - Always look for existing code to iterate on instead of creating new code
+    - Do not change established patterns without first trying to iterate on them
+    - Write code that considers different environments: dev, test, and prod
+    - Only make changes that are requested or well understood
+    - When fixing issues, exhaust all options with existing implementation before introducing new patterns
+    - Avoid having files over 200-300 lines of code; refactor when reaching this threshold
+    - Focus on code areas relevant to the task and avoid touching unrelated code
+    - Consider potential impacts on other methods and areas when making changes
 
 ## Interactive Rules:
 

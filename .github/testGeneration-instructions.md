@@ -147,3 +147,12 @@
    - Verify client-server boundary interactions
    - Test data mutations during streaming
    - Validate state preservation
+
+## Testing Best Practices
+
+- Run tests after EACH code generation to prevent introducing bugs
+- Write thorough tests for all major functionality
+- Use assertions to validate assumptions and catch errors early
+- Include tests for edge cases and error conditions
+- Avoid mocking data except in test environments
+- Never add stubbing or fake data patterns for dev or prod environments
