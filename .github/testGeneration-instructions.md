@@ -9,8 +9,12 @@
 
     - Write unit tests for utilities and components
     - Implement E2E tests for critical flows
-    - Test across different Chrome versions
     - Test memory usage and performance
+    - Require 90% minimum code coverage for unit tests
+    - Implement visual regression testing for UI components
+    - Add load testing for API endpoints
+    - Implement contract testing for API boundaries
+    - Implement snapshot testing for UI components
 
 ## Testing Architecture
 

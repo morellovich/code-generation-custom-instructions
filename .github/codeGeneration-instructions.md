@@ -130,6 +130,12 @@
     - Add accessibility (a11y) requirements
     - Include API versioning strategy
 
+## Accessibility Requirements\*\*:
+
+- Include WCAG compliance standards
+- Specify accessibility testing tools
+- Add guidelines for keyboard navigation and screen readers.
+
 ## Instructions for Tailwind CSS Code Generation
 
     - Keep utility classes organized and meaningful for better maintainability.
@@ -195,30 +201,39 @@
 
 ## Stick to this folder structure for all repositories:
 
-    src/
-    ├── core/ # Business logic (reusable across backend/frontend)
-    │ ├── domain/ # Business entities & validation rules
-    │ ├── usecases/ # Application logic & services
-    │ ├── interfaces/ # Abstract interfaces for business rules
-    ├── infrastructure/ # System-level implementations
-    │ ├── database/ # PostgreSQL & Prisma implementations
-    │ ├── external/ # API integrations (e.g., Auth, Sentry)
-    │ ├── storage/ # File & session storage (e.g., NextAuth, Chrome storage)
-    │ ├── config/ # Environment config & secrets
-    ├── presentation/ # User-facing interfaces (UI, API)
-    │ ├── api/ # FastAPI routes/controllers
-    │ ├── web/ # Next.js components & pages
-    │ ├── extension/ # Chrome extension UI & scripts
-    │ ├── mobile/ # React Native components
-    │ ├── middleware/ # Request/Response middleware
-    ├── shared/ # Cross-platform utilities & types
-    │ ├── components/ # Shared UI elements (Next.js, React Native)
-    │ ├── hooks/ # Reusable hooks (React, Next.js, React Native)
-    │ ├── utils/ # Helper functions (server + frontend)
-    │ ├── types/ # TypeScript types (backend + frontend)
-    ├── tests/ # Unit and integration tests (Jest, Pytest)
-    ├── scripts/ # Deployment and automation scripts (Docker, CI/CD)
-    └── README.md # Documentation
+src/
+├── core/ # Business logic (reusable across backend/frontend)
+│ ├── domain/ # Business entities & validation rules
+│ ├── usecases/ # Application logic & services
+│ └── interfaces/ # Abstract interfaces for business rules
+├── infrastructure/ # System-level implementations
+│ ├── database/ # Database implementations (PostgreSQL, Prisma)
+│ ├── external/ # External API integrations (e.g., Auth, Sentry)
+│ ├── storage/ # Storage solutions (e.g., file, session)
+│ └── config/ # Configuration files (environment variables, secrets)
+├── presentation/ # User-facing interfaces (UI, API)
+│ ├── api/ # FastAPI routes/controllers
+│ ├── web/ # Next.js components & pages
+│ ├── extension/ # Chrome extension UI & scripts
+│ ├── mobile/ # React Native components
+│ └── middleware/ # Middleware for request/response handling
+├── shared/ # Shared utilities & types across platforms
+│ ├── components/ # Shared UI components (Next.js, React Native)
+│ ├── hooks/ # Reusable hooks (React, Next.js, React Native)
+│ ├── utils/ # Utility functions (server + frontend)
+│ └── types/ # TypeScript types (backend + frontend)
+├── tests/ # Unit and integration tests (Jest, Pytest)
+├── scripts/ # Deployment and automation scripts (Docker, CI/CD)
+├── migrations/ # Database migration files
+├── docs/ # Project documentation
+│ ├── architecture.md # Architecture overview
+│ ├── api_reference.md # API reference documentation
+│ └── user_guide.md # User guide documentation
+└── coding_rules/ # Coding standards and guidelines
+├── eslint.md # ESLint configuration and rules
+├── prettier.md # Prettier configuration and rules
+└── conventions.md # General coding conventions
+└── README.md # Project documentation
 
 ## Code Syntax, Formatting and Naming Conventions
 
@@ -306,7 +321,7 @@
     - Enable attack challenge on hosting WAF when available (e.g., Vercel)
     - Authenticate API endpoints for paid/active users only
     - Implement caps on AI usage where applicable
-    - Include OWASP top 10 protections
+    - Follow OWASP Top 10 protection guidelines
 
 ## Error Handling
 
@@ -327,13 +342,14 @@
     - Don't include comments unless it's for complex logic
     - Document permission requirements
     - Include documentation generation rules
+    - Create component documentation with Storybook
+    - Document performance benchmarks and requirements
 
 ## Development Workflow
 
     - Follow proper semantic versioning for all projects
     - Implement proper code review process
     - Test in multiple environments
-    - Follow semantic versioning for releases
     - Maintain changelog
     - Add PR template requirements
     - Add changelog maintenance guidelines

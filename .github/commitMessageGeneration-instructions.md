@@ -1,5 +1,12 @@
 ## Commit Message Insttructions:
 
+- Add scope information in parentheses after type: `feat(auth): add login page`
+- Include breaking change notation with BREAKING CHANGE: in the footer
+- Reference issue numbers when applicable with #123
+- Use present tense verbs in commit messages
+
+## Prefixes:
+
     use the following prefixes for commit messages followed by a colon and a space:
 
     - "fix" for bug fixes
