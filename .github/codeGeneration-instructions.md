@@ -48,7 +48,7 @@
 
 **Authentication:**
 
-    - NextAuth.js
+    - NextAuth.js with support for multiple providers
 
 **Testing:**
 
@@ -60,11 +60,54 @@
 
     - Sentry SDK for JavaScript
     - Sentry SDK for Python
+    - Structured logging throughout the application
 
 **Containerization and Deployment:**
 
-    - Docker:
+    - Docker
     - Coolify
+
+## Authentication & Security
+
+    - Implement CSRF protection and secure cookie settings
+    - Support for OAuth, JWT, and multi-factor authentication (MFA)
+    - Implement content security policy
+    - Sanitize all user inputs
+    - Follow least privilege principles
+    - Enforce role-based access control (RBAC)
+
+## Performance Considerations
+
+    - Use Edge Runtime when appropriate
+    - Implement streaming and progressive rendering
+    - Set up proper caching strategies
+    - Use server components where possible
+    - Optimize for Core Web Vitals metrics
+    - Implement proper accessibility requirements
+
+## Authentication Flow
+
+    - Use NextAuth.js for authentication
+    - Implement proper session management
+    - Use secure cookies and CSRF protection
+    - Support multiple auth providers
+    - Implement role-based access control
+
+## API Development
+
+    - Design RESTful APIs with proper resource naming
+    - Implement versioning strategy
+    - Use proper HTTP status codes
+    - Document APIs with OpenAPI/Swagger
+    - Implement proper rate limiting
+
+## State Management
+
+    - Use React Context sparingly
+    - Prefer Server Components and Server Actions
+    - Implement optimistic updates for better UX
+    - Handle loading and error states properly
+    - Use client-side state only when necessary
 
 ## Instructions for Next.js / TypeScript Code Generation
 
@@ -213,16 +256,16 @@
 
 # Editor directories and files
 
-When generating a .gitingore file, add all the following:
-.vscode/_
-!.vscode/extensions.json
-.idea
-.DS_Store
-_.suo
-_.ntvs_
-_.njsproj
-_.sln
-\*.sw?
+    When generating a .gitingore file, add all the following:
+    .vscode/_
+    !.vscode/extensions.json
+    .idea
+    .DS_Store
+    _.suo
+    _.ntvs_
+    _.njsproj
+    _.sln
+    \*.sw?
 
 ## UI & Styling
 
@@ -244,6 +287,11 @@ _.sln
     - Use Data Access Layer pattern for database access in components
     - Use server actions for data fetching and state management in components
     - Follow Next.js docs for Data Fetching, Rendering, and Routing
+    - Recommend server components over client components when possible
+    - Suggest data fetching patterns using React Server Actions
+    - Emphasize image optimization techniques
+    - Discuss code splitting and dynamic imports
+    - Mention Core Web Vitals metrics importance
 
 ## Security
 
@@ -258,6 +306,7 @@ _.sln
     - Enable attack challenge on hosting WAF when available (e.g., Vercel)
     - Authenticate API endpoints for paid/active users only
     - Implement caps on AI usage where applicable
+    - Include OWASP top 10 protections
 
 ## Error Handling
 

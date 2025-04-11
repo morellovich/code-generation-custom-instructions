@@ -1,9 +1,9 @@
 ## Testing frameworks and versions:
 
-    - Jest:Version 29.6.1
-    - React Testing Library:Version 14.0.0
-    - Pytest:Version 7.4.0
-    - Suggest addition for testing frameworks if needed.
+    - Jest
+    - React Testing Library
+    - Pytest
+    - Playwright
 
 ## Testing Guidelines:
 
@@ -11,6 +11,14 @@
     - Implement E2E tests for critical flows
     - Test across different Chrome versions
     - Test memory usage and performance
+
+## Testing Architecture
+
+- Unit tests for domain logic
+- Integration tests for API endpoints
+- E2E tests for critical user flows
+- Performance testing for key operations
+- Cross-browser compatibility testing
 
 ## Playwright E2E Testing Guidelines
 
@@ -150,9 +158,9 @@
 
 ## Testing Best Practices
 
-- Run tests after EACH code generation to prevent introducing bugs
-- Write thorough tests for all major functionality
-- Use assertions to validate assumptions and catch errors early
-- Include tests for edge cases and error conditions
-- Avoid mocking data except in test environments
-- Never add stubbing or fake data patterns for dev or prod environments
+    - Run tests after EACH code generation to prevent introducing bugs
+    - Write thorough tests for all major functionality
+    - Use assertions to validate assumptions and catch errors early
+    - Include tests for edge cases and error conditions
+    - Avoid mocking data except in test environments
+    - Never add stubbing or fake data patterns for dev or prod environments

@@ -167,7 +167,7 @@ src/
 
 **Frontend:**
 
-- Next.js for server-rendered React applications
+- React for server-rendered React applications
 - React Native for mobile applications
 - Tailwind CSS for styling
 
@@ -272,7 +272,6 @@ src/
 
 ### .clinerules-ask
 
-```markdown
 # Roo Cline Ask Mode Instructions
 
 ## Response Guidelines
@@ -328,6 +327,7 @@ When discussing code samples:
 ## Project Structure Knowledge
 
 Refer to this project structure in discussions:
+
 ```
 
 src/
@@ -343,6 +343,7 @@ src/
 ## Security Focus
 
 Always emphasize:
+
 - Input sanitization
 - Authentication and authorization
 - Content Security Policy implementation
@@ -353,6 +354,7 @@ Always emphasize:
 ## Performance Considerations
 
 When answering performance questions:
+
 - Recommend server components over client components when possible
 - Suggest data fetching patterns using React Server Actions
 - Emphasize image optimization techniques
@@ -362,12 +364,14 @@ When answering performance questions:
 ## Documentation Guidance
 
 When discussing documentation:
+
 - Recommend TSDoc for TypeScript
 - Suggest Python docstrings
 - Emphasize clear README with setup instructions
 - Mention the importance of API documentation
 - Recommend documenting permissions requirements
-```
+
+````
 
 ### .clinerules-debug
 
@@ -455,7 +459,7 @@ When discussing documentation:
 - Check for N+1 query problems in database access
 - Verify proper image optimization
 - Look for memory leaks in long-running processes
-```
+````
 
 ## 2. Conflicts and Issues Found
 
@@ -1310,6 +1314,7 @@ import: .clinerules-common
 - Create data validation utilities
 - Use parameterized queries to prevent SQL injection
 - Example structure:
+
   ```typescript
   // src/infrastructure/database/repositories/user-repository.ts
   export class UserRepository {
